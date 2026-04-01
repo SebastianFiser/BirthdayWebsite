@@ -1,0 +1,83 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 40%, #ffecd2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(255, 100, 130, 0.25);
+  max-width: 520px;
+  width: 90%;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.balloons {
+  font-size: 2.5rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+.title {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 800;
+  color: #e91e8c;
+  text-shadow: 2px 2px 4px rgba(233, 30, 140, 0.2);
+  margin-bottom: 0.6rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #c2185b;
+  margin-bottom: 1.8rem;
+}
+
+.cake {
+  font-size: 5rem;
+  margin: 1rem 0;
+  display: inline-block;
+  animation: bounce 1.2s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: scale(1); }
+  to   { transform: scale(1.12); }
+}
+
+.message {
+  font-size: 1rem;
+  color: #6d4c69;
+  line-height: 1.7;
+  margin-top: 1.5rem;
+}
+
+.confetti-row {
+  font-size: 1.8rem;
+  letter-spacing: 0.6rem;
+  margin-top: 1.5rem;
+}
