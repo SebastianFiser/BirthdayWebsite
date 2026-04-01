@@ -3,36 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday! 🎂</title>
+  <title>BirthdayWebsite</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="balloons">
-      <span>🎈</span>
-      <span>🎈</span>
-      <span>🎈</span>
-    </div>
+  <header>
+    <h1>Milá Karolínko</h1>
+  </header>
 
-    <h1 class="title">Happy Birthday!</h1>
-    <p class="subtitle">Wishing you an amazing day filled with joy and laughter 🎉</p>
+  <main>
+    <section id="intro" class="reveal">
+      <h2>Začátek našeho příběhu</h2>
+    </section>
 
-    <div class="cake">🎂</div>
+    <section id="countdown" class="reveal">
+      <h2>Ted je to</h2>
+      <p>// Zde bude odpočet od narozdeni</p>
+      <h3>A z toho se zname</h3>
+      <p>//odpocet od seznameni</p>
+    </section>
 
-    <p class="message">
-      May all your dreams and wishes come true today and always.
-      You deserve the very best! 🥳
-    </p>
+    <section id="memories" class="reveal">
+      <h2>Vzpomínky</h2>
+      <p>Rolba, DOFE, gym.</p>
+    </section>
 
-    <div class="confetti-row">
-      <span>🎊</span>
-      <span>✨</span>
-      <span>🎁</span>
-      <span>✨</span>
-      <span>🎊</span>
-    </div>
+    <section id="inside-joke" class="reveal">
+    <h2>Inside joke</h2>
+    <p>Zadej tajný klíč pro odemknutí Franta sekce.</p>
+
+    <form id="secret-form">
+      <label for="secret-key">Tajný klíč</label>
+      <input
+        type="text"
+        id="secret-key"
+        name="secret-key"
+        placeholder="Napiš frázi..."
+        autocomplete="off"
+        required
+    />
+    <button type="submit">Odemknout</button>
+  </form>
+
+  <p id="secret-feedback" aria-live="polite"></p>
+
+  <div id="secret-content" hidden>
+    <p>Franta sekce (zatím skrytá).</p>
   </div>
+</section>
 
-  <script src="script.js"></script>
+    <section id="music" class="reveal">
+      <h2>Hudba</h2>
+      <p>Hudba se spustí až po interakci uživatele.</p>
+    </section>
+
+    <section id="final-message" class="reveal">
+      <h2>Finální zpráva</h2>
+      <p>Závěr celého příběhu.</p>
+    </section>
+  </main>
 </body>
 </html>
