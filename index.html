@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BirthdayWebsite</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
@@ -18,14 +19,41 @@
 
     <section id="countdown" class="reveal">
       <h2>Ted je to</h2>
-      <p>// Zde bude odpočet od narozdeni</p>
+      <p id="birth-time">Načítám čas...</p>
       <h3>A z toho se zname</h3>
-      <p>//odpocet od seznameni</p>
+      <p id="known-time">To už je dlouho</p>
     </section>
 
     <section id="memories" class="reveal">
       <h2>Vzpomínky</h2>
-      <p>Rolba, DOFE, gym.</p>
+      <p>Tři momenty, který se mnou zůstaly</p>
+
+      <div class="memories-list">
+        <div class="memory-item">
+          <h3>Moment 1</h3>
+          <p>Popis momentu 1.</p>
+          <figure>
+            <img src="memory1.jpg" alt="Popis obrázku pro moment 1" />
+            <figcaption>Obrázek k momentu 1</figcaption>
+          </figure>
+        </div>
+        <div class="memory-item">
+          <h3>Moment 2</h3>
+          <p>Popis momentu 2.</p>
+          <figure>
+            <img src="memory2.jpg" alt="Popis obrázku pro moment 2" />
+            <figcaption>Obrázek k momentu 2</figcaption>
+          </figure>
+        </div>
+        <div class="memory-item">
+          <h3>Moment 3</h3>
+          <p>Popis momentu 3.</p>
+          <figure>
+            <img src="memory3.jpg" alt="Popis obrázku pro moment 3" />
+            <figcaption>Obrázek k momentu 3</figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
     <section id="inside-joke" class="reveal">
@@ -54,7 +82,22 @@
 
     <section id="music" class="reveal">
       <h2>Hudba</h2>
-      <p>Hudba se spustí až po interakci uživatele.</p>
+      <p>Playlist se zapne po kliknutí.</p>
+
+      <button type="button" id="play-music">Pustit hudbu</button>
+      <div id="spotify-wrap" hidden>
+        <iframe
+          style="border-radius:12px"
+          src="https://open.spotify.com/embed/playlist/PLAYLIST_ID?utm_source=generator"
+          width="100%"
+          height="380"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+
+      </div>
     </section>
 
     <section id="final-message" class="reveal">

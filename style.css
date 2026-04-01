@@ -51,3 +51,50 @@ p {
   opacity: 1;
   transform: translateY(0);
 }
+
+form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 420px;
+}
+
+label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+input,
+button {
+  font: inherit;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.7rem 0.9rem;
+}
+
+input {
+  background: #11151d;
+  color: var(--text);
+}
+
+button {
+  background: var(--accent);
+  color: #0b0f14;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+#spotify-wrap {
+  margin-top: 1rem;
+}
