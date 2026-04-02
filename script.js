@@ -114,13 +114,26 @@ if (secretForm && secretInput && secretFeedback && secretContent) {
     const value = secretInput.value.trim().toLowerCase();
 
     if (value === SECRET_PHRASE) {
+      const secretSection = secretForm.closest("#inside-joke");
+
+      secretContent.classList.remove("is-visible");
       secretContent.hidden = false;
+      if (secretSection) {
+        secretSection.classList.add("vault-unlocked");
+      }
+
       secretFeedback.textContent = "Odemčeno!";
       secretForm.querySelector("button").disabled = true;
       secretInput.disabled = true;
+
+      window.setTimeout(() => {
+        secretContent.classList.add("is-visible");
+      }, 90);
+
       return;
     }
 
+    secretContent.classList.remove("is-visible");
     secretContent.hidden = true;
     secretFeedback.textContent = "Špatný klíč, zkus to znovu.";
   });

@@ -8,13 +8,15 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
+ 
+  <header> 
+    
     <h1>Milá Karolínko</h1>
   </header>
 
   <main>
     <section id="intro" class="reveal">
-      <h2>Protože bych všechny naše úžasné chvíle nedokázal vměstnat do jednoho IG stories</h2>
+      <h2>Protože bych všechny naše úžasné chvíle nedokázal dostat do jednoho IG story</h2>
       <p>Tak jsem ti připravil něco speciálního.</p>
     </section>
 
@@ -42,33 +44,35 @@
           <div class="time-unit"><strong id="known-seconds">0</strong><span>sekund</span></div>
         </div>
       </article>
-      <p>To je krásně dlouhá cesta, co?</p>
+      <p>To je sice dlouho, ale naše kolena se cítí starší</p>
     </section>
 
     <section id="inside-joke" class="reveal">
-    <h2>Tajný vault</h2>
-    <p>Zadej tajný klíč pro odemknutí sekce.</p>
-    <p>*Hint* Klíč je jméno nejstaršího a největšího yappera, který si tě najde i v McDonaldu.</p>
+      <div class="vault-entry">
+        <h2>Tajný vault</h2>
+        <p>Zadej tajný klíč pro odemknutí sekce.</p>
+        <p>*Hint* Klíč je jméno nejstaršího a největšího yappera, který si tě najde i v McDonalds.</p>
 
-    <form id="secret-form">
-      <label for="secret-key">Tajný klíč</label>
-      <input
-        type="text"
-        id="secret-key"
-        name="secret-key"
-        placeholder="Napiš jméno..."
-        autocomplete="off"
-        required
-    />
-    <button type="submit">Odemknout</button>
-  </form>
+        <form id="secret-form">
+          <label for="secret-key">Tajný klíč</label>
+          <input
+            type="text"
+            id="secret-key"
+            name="secret-key"
+            placeholder="Napiš jméno..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Odemknout</button>
+        </form>
 
-  <p id="secret-feedback" aria-live="polite"></p>
+        <p id="secret-feedback" aria-live="polite"></p>
+      </div>
 
-  <div id="secret-content" hidden>
-    <p>Určitě si oba moc dobře pamatujeme, jak za námi Franta přišel. Ty naše pohledy a tichá dohoda, že by mohl odejít stejně rychle, jako se objevil. A pak to dlouhé čekání, kdy jsme místo jídla poslouchali monolog. Celé to kvůli letáku. Mekáč mezitím vychladl, ale jablečná kapsička to aspoň trochu zachránila.</p>
-  </div>
-</section>
+      <div id="secret-content" hidden>
+        <p>Určitě si oba moc dobře pamatujeme, jak za námi Franta přišel. To naše tichý ujasnění, že by mohl odejít stejně rychle, jako se objevil. A pak to dlouhé čekání, kdy jsme místo jídla poslouchali monolog. Celé to kvůli letáku. Burger muzitím navhl, a sám vypadal, jako kdyby procházel depresivním obdobím + jablečná kapsička na topu.</p>
+      </div>
+    </section>
 
     <section id="memories" class="reveal">
       <h2>Vzpomínky</h2>
@@ -77,7 +81,7 @@
       <div class="memories-list">
         <article class="memory-item">
           <h3>Ochutnávání barevných koulí</h3>
-          <p>Naše superschopnost proměnit nevinnou věc v inside joke během pár sekund by se měla studovat. A ano, modré koule jsou stejně moje favoritky.</p>
+          <p>Naše superschopnost proměnit nevinnou věc v 18+ větu během pár sekund by se měla studovat. A ano, modré koule jsou stejně nejlepší.</p>
           <figure>
             <img src="assets/Barevne_koule.jpg" alt="Elitni ochutnavka" />
             <figcaption>Barevné koule</figcaption>
@@ -85,7 +89,7 @@
         </article>
         <article class="memory-item">
           <h3>Lyže</h3>
-          <p>Každoroční zimní tradice. Miluju, že můžeme být spolu na jedné sjezdovce, užívat si rychlost a smát se i promrzlým uším. PS: O tom lepším lyžaři se radši nehádáme.</p>
+          <p>Každoroční zimní tradice. Miluju, že můžeme být spolu na jedné sjezdovce, prožívat rychlost a umírat s promrzlýma ušima. PS:Vždycky budu lepší lyžař.</p>
           <figure>
             <img src="assets/images/lyze.jpg" alt="Lyzovacka kazdej rok je elita" />
             <figcaption>Jestli nás to jednou nezabije, budu spokojený.</figcaption>
@@ -93,7 +97,7 @@
         </article>
         <article class="memory-item">
           <h3>Gym</h3>
-          <p>Jedna z věcí, na které se každý týden těším nejvíc, je společný trénink. Motivujeme se, hecujeme a občas i trochu soupeříme, ale právě to je na tom nejlepší.</p>
+          <p>Jedna z věcí, na které se každý týden těším nejvíc, je společný workout. Ze všho nejví miluju vzájemnej hype, a hitování novejch pr</p>
           <figure>
             <img src="assets/images/gym.jpg" alt="Kazdodenní zalezitost" />
             <figcaption>Nedávná fotečka</figcaption>
@@ -103,7 +107,7 @@
     </section>
     <section id="music" class="reveal">
       <h2>Hudba</h2>
-      <p>Náš hudební vkus je top. A tahle sekce je přesně ten soundtrack, který k nám sedí.</p>
+      <p>Přidal jsem pár našich oblíbených song aby jsis je mohla připomenout.</p>
 
       <button type="button" id="play-music">Spusť hudbu</button>
       <div id="spotify-wrap" hidden>
@@ -126,7 +130,7 @@
       <p>Tímhle malým projektem ti chci popřát krásné 17. narozeniny. Přeju ti spoustu štěstí, radosti, zdraví, lásky, úspěchů ve škole a ať se ti plní všechny tvoje cíle. A chtěl bych dodat že jsem strasně rád že jsme nejlepší přátelé. Doufám že nám tenhle rok přibyde více side questů, zábavy a eventů. </p>
       <p>PS: Love you twin (platonicky)</p>
     </section>
-
+    <p>Open source projekt. Navštivte https://github.com/SebastianFiser/BirthdayWebsite/</p>
     <p style="font-size: 0.85rem; color: #b5bdc9; margin-top: 2rem;">© 2026 Sebastian Fišer | MIT License</p>
   </main>
 </body>

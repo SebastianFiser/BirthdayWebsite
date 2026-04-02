@@ -1,11 +1,11 @@
 :root {
-  --bg: #f7f3ef;
-  --surface: #fffaf6;
+  --bg: #f7eef2;
+  --surface: #fff7f9;
   --text: #3f2f2b;
-  --muted: #7f6c66;
-  --accent: #e7b7a7;
-  --text-box: #e1c0b5;
-  --text-box-border: #c99d8f;
+  --muted: #84686f;
+  --accent: #e2a6b7;
+  --text-box: #e9c2ce;
+  --text-box-border: #cf9aaa;
   --maxw: 760px;
 }
 
@@ -20,7 +20,7 @@ html {
 
 body {
   margin: 0;
-  background: radial-gradient(circle at 20% 10%, #fffdfb 0%, var(--bg) 45%, #f2ebe5 100%);
+  background: radial-gradient(circle at 20% 10%, #fffdfd 0%, var(--bg) 42%, #f4e1ea 100%);
   color: var(--text);
   font-family: 'Trebuchet MS', 'Segoe UI', Tahoma, sans-serif;
   line-height: 1.6;
@@ -120,6 +120,33 @@ header h1,
 }
 
 .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#inside-joke {
+  overflow: hidden;
+}
+
+.vault-entry {
+  width: 100%;
+  transition: transform 520ms ease, opacity 520ms ease;
+  will-change: transform, opacity;
+}
+
+#inside-joke.vault-unlocked .vault-entry {
+  transform: translateY(-22px);
+  opacity: 0.28;
+}
+
+#secret-content {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 900ms ease, transform 900ms ease;
+  will-change: opacity, transform;
+}
+
+#secret-content.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
