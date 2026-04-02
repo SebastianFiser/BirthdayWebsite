@@ -22,34 +22,79 @@ if (reduceMotion) {
   revealItems.forEach((item) => revealObserver.observe(item));
 }
 
-const birthTimeEl = document.getElementById("birth-time");
-const knownTimeEl = document.getElementById("known-time");
+const birthUnitEls = {
+  years: document.getElementById("birth-years"),
+  months: document.getElementById("birth-months"),
+  days: document.getElementById("birth-days"),
+  hours: document.getElementById("birth-hours"),
+  minutes: document.getElementById("birth-minutes"),
+  seconds: document.getElementById("birth-seconds"),
+};
+
+const knownUnitEls = {
+  years: document.getElementById("known-years"),
+  months: document.getElementById("known-months"),
+  days: document.getElementById("known-days"),
+  hours: document.getElementById("known-hours"),
+  minutes: document.getElementById("known-minutes"),
+  seconds: document.getElementById("known-seconds"),
+};
 
 const birthDate = new Date("2009-04-16T00:09:26");
 const knownDate = new Date("2017-01-01T00:00:00");
 
 function updateTimes() {
-  if (!birthTimeEl || !knownTimeEl) return;
-
   const now = new Date();
-  const birthDiff = now - birthDate;
-  const knownDiff = now - knownDate;
 
-  const totalSeconds = Math.floor(birthDiff / 1000);
-  const totalMinutes = Math.floor(totalSeconds / 60);
-  const totalHours = Math.floor(totalMinutes / 60);
-  const totalDays = Math.floor(totalHours / 24);
-  const totalYears = (totalDays / 365.25).toFixed(2);
+  function getTimeParts(startDate, endDate) {
+    let years = endDate.getFullYear() - startDate.getFullYear();
+    let months = endDate.getMonth() - startDate.getMonth();
+    let days = endDate.getDate() - startDate.getDate();
+    let hours = endDate.getHours() - startDate.getHours();
+    let minutes = endDate.getMinutes() - startDate.getMinutes();
+    let seconds = endDate.getSeconds() - startDate.getSeconds();
 
-  birthTimeEl.textContent = `Už je to ${totalYears} let (${totalDays} dní, ${totalHours} hodin, ${totalMinutes} minut, ${totalSeconds} sekund) od narození.`;
+    if (seconds < 0) {
+      seconds += 60;
+      minutes -= 1;
+    }
 
-  const knownSeconds = Math.floor(knownDiff / 1000);
-  const knownMinutes = Math.floor(knownSeconds / 60);
-  const knownHours = Math.floor(knownMinutes / 60);
-  const knownDays = Math.floor(knownHours / 24);
-  const knownYears = (knownDays / 365.25).toFixed(2);
+    if (minutes < 0) {
+      minutes += 60;
+      hours -= 1;
+    }
 
-  knownTimeEl.textContent = `Známe se už ${knownYears} let (${knownDays} dní, ${knownHours} hodin, ${knownMinutes} minut, ${knownSeconds} sekund).`;
+    if (hours < 0) {
+      hours += 24;
+      days -= 1;
+    }
+
+    if (days < 0) {
+      const previousMonthDays = new Date(endDate.getFullYear(), endDate.getMonth(), 0).getDate();
+      days += previousMonthDays;
+      months -= 1;
+    }
+
+    if (months < 0) {
+      months += 12;
+      years -= 1;
+    }
+
+    return { years, months, days, hours, minutes, seconds };
+  }
+
+  function writeParts(target, parts) {
+    if (!target) return;
+    target.years.textContent = parts.years;
+    target.months.textContent = parts.months;
+    target.days.textContent = parts.days;
+    target.hours.textContent = parts.hours;
+    target.minutes.textContent = parts.minutes;
+    target.seconds.textContent = parts.seconds;
+  }
+
+  writeParts(birthUnitEls, getTimeParts(birthDate, now));
+  writeParts(knownUnitEls, getTimeParts(knownDate, now));
 }
 
 updateTimes();
@@ -90,4 +135,64 @@ if (showPlayerBtn && spotifyWrap) {
     showPlayerBtn.disabled = true;
     showPlayerBtn.textContent = "Playlist připraven";
   });
+}
+
+// Memory carousel scroll lock
+const memoriesSection = document.getElementById("memories");
+const memoriesList = document.querySelector(".memories-list");
+const memoryItems = document.querySelectorAll(".memory-item");
+
+if (memoriesList && memoryItems.length > 0) {
+  let currentMemoryIndex = 0;
+  let memoriesInView = false;
+
+  function showMemory(index, behavior = "smooth") {
+    const maxIndex = memoryItems.length - 1;
+    currentMemoryIndex = Math.max(0, Math.min(index, maxIndex));
+
+    memoriesList.scrollTo({
+      left: currentMemoryIndex * memoriesList.clientWidth,
+      behavior,
+    });
+  }
+
+  const memoriesObserver = new IntersectionObserver(
+    ([entry]) => {
+      memoriesInView = entry.isIntersecting && entry.intersectionRatio >= 0.7;
+    },
+    {
+      threshold: [0.7],
+    }
+  );
+
+  if (memoriesSection) {
+    memoriesObserver.observe(memoriesSection);
+  }
+
+  showMemory(0, "auto");
+
+  window.addEventListener("resize", () => showMemory(currentMemoryIndex, "auto"));
+
+  document.addEventListener(
+    "wheel",
+    (event) => {
+      if (!memoriesInView) return;
+
+      const maxIndex = memoryItems.length - 1;
+      const scrollingDown = event.deltaY > 0;
+      const scrollingUp = event.deltaY < 0;
+
+      if (scrollingDown && currentMemoryIndex < maxIndex) {
+        event.preventDefault();
+        showMemory(currentMemoryIndex + 1);
+        return;
+      }
+
+      if (scrollingUp && currentMemoryIndex > 0) {
+        event.preventDefault();
+        showMemory(currentMemoryIndex - 1);
+      }
+    },
+    { passive: false }
+  );
 }
