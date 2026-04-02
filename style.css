@@ -262,12 +262,13 @@ input:focus-visible {
   display: flex;
   gap: 0;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
   scroll-behavior: smooth;
   flex: 1;
   width: 100%;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
+    padding-right: 0.5rem;
   touch-action: pan-x;
 }
 
@@ -281,7 +282,7 @@ input:focus-visible {
   max-width: none;
   height: 100vh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
