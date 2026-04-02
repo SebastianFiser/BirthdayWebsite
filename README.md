@@ -13,7 +13,7 @@ Live demo: [sebastianfiser.github.io/BirthdayWebsite](https://sebastianfiser.git
 - Unlocks a secret vault with a passphrase.
 - Reveals a small hidden story once the vault is opened.
 - Presents a horizontal memories section with images and captions.
-- Loads an embedded Spotify playlist on demand.
+- Lets you click song covers to load individual Spotify track embeds.
 - Uses scroll-based page transitions and reveal animations for a more polished feel.
 - Respects reduced-motion preferences for accessibility.
 
@@ -32,7 +32,7 @@ Live demo: [sebastianfiser.github.io/BirthdayWebsite](https://sebastianfiser.git
 - GitHub Pages for hosting
 - IntersectionObserver for reveal and section tracking
 - prefers-reduced-motion for motion-aware behavior
-- Spotify embed iframe for the music section
+- Spotify track embed iframe for the music section
 - Native browser scrolling and animation APIs
 
 ## Project Structure

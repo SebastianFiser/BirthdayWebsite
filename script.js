@@ -139,14 +139,33 @@ if (secretForm && secretInput && secretFeedback && secretContent) {
   });
 }
 
-const showPlayerBtn = document.getElementById("play-music");
+const trackCards = document.querySelectorAll(".track-card");
 const spotifyWrap = document.getElementById("spotify-wrap");
+const musicPlayer = document.getElementById("music-player");
+const musicNowPlaying = document.getElementById("music-now-playing");
 
-if (showPlayerBtn && spotifyWrap) {
-  showPlayerBtn.addEventListener("click", () => {
+if (trackCards.length > 0 && spotifyWrap && musicPlayer && musicNowPlaying) {
+  const setActiveTrack = (trackCard) => {
+    const trackId = trackCard.dataset.trackId;
+    const trackTitle = trackCard.dataset.trackTitle || "Selected track";
+    const trackArtist = trackCard.dataset.trackArtist || "";
+    const embedUrl = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator`;
+
     spotifyWrap.hidden = false;
-    showPlayerBtn.disabled = true;
-    showPlayerBtn.textContent = "Playlist připraven";
+    musicPlayer.src = embedUrl;
+    musicPlayer.title = trackArtist ? `${trackTitle} by ${trackArtist}` : trackTitle;
+    musicNowPlaying.textContent = trackArtist ? `${trackTitle} by ${trackArtist}` : trackTitle;
+
+    trackCards.forEach((card) => {
+      const isActive = card === trackCard;
+      card.classList.toggle("is-active", isActive);
+      card.setAttribute("aria-pressed", String(isActive));
+    });
+  };
+
+  trackCards.forEach((trackCard) => {
+    trackCard.setAttribute("aria-pressed", "false");
+    trackCard.addEventListener("click", () => setActiveTrack(trackCard));
   });
 }
 
