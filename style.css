@@ -274,10 +274,6 @@ input {
   color: var(--text);
 }
 
-body.is-secret-input-focused #secret-form {
-  transform: scale(1.06);
-}
-
 button {
   background: var(--accent);
   color: #3b2a24;
@@ -569,24 +565,7 @@ input:focus-visible {
 }
 
 @media (max-width: 768px) and (hover: none) and (pointer: coarse) {
-  #inside-joke {
-    scroll-margin-top: 14vh;
-  }
-
-  #secret-form {
-    transform-origin: center top;
-    transition: transform 220ms ease, filter 220ms ease;
-  }
-
-  body.is-secret-input-focused #inside-joke {
-    z-index: 5;
-  }
-
-  body.is-secret-input-focused #secret-form {
-    filter: drop-shadow(0 16px 24px rgba(108, 78, 69, 0.14));
-  }
-
-  body.is-secret-input-focused #secret-key {
+  #secret-key {
     font-size: 1rem;
   }
 }

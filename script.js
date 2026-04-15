@@ -104,31 +104,12 @@ const secretForm = document.getElementById("secret-form");
 const secretInput = document.getElementById("secret-key");
 const secretFeedback = document.getElementById("secret-feedback");
 const secretContent = document.getElementById("secret-content");
-const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
 const SECRET_PHRASE = "franta";
 
 if (secretForm && secretInput && secretFeedback && secretContent) {
-  const setSecretInputFocusState = (isFocused) => {
-    document.body.classList.toggle("is-secret-input-focused", isFocused);
-  };
-
-  if (isTouchDevice) {
-    secretInput.addEventListener("focus", () => {
-      setSecretInputFocusState(true);
-      window.requestAnimationFrame(() => {
-        secretInput.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
-      });
-    });
-
-    secretInput.addEventListener("blur", () => {
-      setSecretInputFocusState(false);
-    });
-  }
-
   secretForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    setSecretInputFocusState(false);
 
     const value = secretInput.value.trim().toLowerCase();
 
